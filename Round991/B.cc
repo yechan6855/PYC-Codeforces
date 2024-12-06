@@ -14,6 +14,7 @@ int main() {
 
     int t;
     cin >> t;
+
     while (t--) {
         string n;
         cin >> n;
@@ -23,24 +24,25 @@ int main() {
         for (char ch : n) {
             int digit = ch - '0';
             smod = (smod + digit) % 9;
+
             if (digit == 2) cnt2++;
             if (digit == 3) cnt3++;
         }
 
         int tamod = (9 - smod) % 9;
-
         bool found = false;
         int inv2 = 5;
-
         int rym[3] = {0, 6, 3};
 
         for (int r1 = 0; r1 <= 8; r1++) {
             int x0 = (inv2 * r1) % 9;
+
             if (x0 > cnt2) continue;
 
             for (int ymd = 0; ymd < 3; ymd++) {
                 int r2 = rym[ymd];
                 int tmod = (r1 + r2) % 9;
+
                 if (tmod == tamod) {
                     int y0 = ymd;
                     if (y0 > cnt3) continue;
